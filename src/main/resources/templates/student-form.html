@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+  <head>
+      <meta charset="UTF-8">
+      <title>Thymeleaf Demo - Student Registration Form</title>
+      <link rel="stylesheet"
+            th:href="@{/css/demo.css}" />
+  </head>
+  <body>
+
+    <h3> Student Registration Form </h3>
+    <form th:action="@{/processedStudentForm}" th:object="${studentObj}" method="POST" >
+      <!-- writing  *{firstName} it's like studentObj.firstName -->
+      <h5> Firstname </h5>
+      <input type="text" th:field="*{firstName}"
+              placeholder="Firstname" />
+      <h5> Lastname </h5>
+      <input type="text" th:field="*{lastName}"
+              placeholder="Lastname" />
+      <!-- hard coded select
+      <select th:field="*{country}" >
+        <option th:value="Poland" >{"countries.get()"}</option>
+        <option th:value="Germany">Germany</option>
+        <option th:value="Slovakia">Slovakia</option>
+        <option th:value="Ukraine">Ukraine</option>
+      </select>
+      -->
+      <!-- dynamic select -->
+      <h5> Country </h5>
+      <select th:field="*{country}" >
+        <option  th:each="tempCountry : ${countries}" th:value="${tempCountry}"  th:text="${tempCountry}"  />
+      </select>
+
+      <!-- radio buttons -->
+      <h5> Favorite Programming Language </h5>
+      <div class="row" >
+        <input type="radio" th:field="*{language}" th:each="tempLang : ${languages}" th:value="${tempLang}"  th:text="${tempLang}"  />
+      </div>
+
+      <h5> OS </h5>
+      <div class="row"  >
+        <input type="checkbox" th:field="*{favoriteOS}" th:each="tempOS : ${osList}" th:value="${tempOS}"  th:text="${tempOS}"  />
+      </div>
+
+      <p><br /> <br /></p>
+
+      <input type="submit" value="Submit" />
+
+    </form>
+  </body>
+</html>

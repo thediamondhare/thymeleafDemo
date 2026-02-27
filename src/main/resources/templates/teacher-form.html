@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+  <head>
+      <meta charset="UTF-8">
+      <title>Thymeleaf Demo - Teacher Form</title>
+      <link rel="stylesheet"
+            th:href="@{/css/demo.css}" />
+  </head>
+
+  <body>
+      <i> Fill out the form. Asterisk (*) means required </i>
+      <br> <br>
+
+      <form th:action="@{/processedTeacherForm}" th:object="${teacherObj}" method="POST" >
+          <h5> Firstname </h5>
+          <input type="text" th:field="*{firstName}"
+                 placeholder="Firstname" />
+
+          <h5> Lastname*</h5>
+          <input type="text" th:field="*{lastName}"
+                 placeholder="Lastname" />
+
+          <!-- if that field #fields.hasErrors('lastName')  will have error then message will be shown -->
+          <span th:if="${#fields.hasErrors('lastName')}"
+                th:errors="*{lastName}"
+                class="error"></span>
+
+          <input type="submit" value="Submit" class="customSubmit" />
+      </form>
+  </body>
+</html>

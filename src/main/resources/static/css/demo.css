@@ -1,0 +1,48 @@
+*{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h5, span,form,div{
+    padding: 2.5px 5px;
+    width: auto;
+}
+
+form{
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+select,input{
+ max-width: 250px;
+}
+
+.exampleName{
+    font-style: italic;
+    color: blue;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.error{
+    color: red;
+}
+
+.customSubmit{
+    margin-top: 15px;
+}

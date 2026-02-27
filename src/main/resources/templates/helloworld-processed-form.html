@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello World - Processed Form</title>
+        <link rel="stylesheet"
+              th:href="@{/css/demo.css}" />
+    </head>
+
+    <body>
+        <p th:text="'Student name is ' + ${param.studentName} " class="exampleName" />
+        <p th:text="${message}" class="exampleName" />
+    </body>
+</html>
