@@ -14,15 +14,50 @@
       <form th:action="@{/processedTeacherForm}" th:object="${teacherObj}" method="POST" >
           <h5> Firstname </h5>
           <input type="text" th:field="*{firstName}"
-                 placeholder="Firstname" />
+                 placeholder="Firstname*" />
+          <!-- if that field #fields.hasErrors('firstName')  will have error then message will be shown -->
+          <span th:if="${#fields.hasErrors('firstName')}"
+                th:errors="*{firstName}"
+                class="error"></span>
 
           <h5> Lastname*</h5>
           <input type="text" th:field="*{lastName}"
                  placeholder="Lastname" />
-
           <!-- if that field #fields.hasErrors('lastName')  will have error then message will be shown -->
           <span th:if="${#fields.hasErrors('lastName')}"
                 th:errors="*{lastName}"
+                class="error"></span>
+
+          <h5> Experience - full years </h5>
+          <input type="text" th:field="*{yearsOfExperience}"
+                 placeholder="Years" />
+          <span th:if="${#fields.hasErrors('yearsOfExperience')}"
+                th:errors="*{yearsOfExperience}"
+                class="error"></span>
+
+
+          <h5> Postal Code </h5>
+          <input type="text" th:field="*{postalCode}"
+                 placeholder="Postal Code" />
+          <span th:if="${#fields.hasErrors('postalCode')}"
+                th:errors="*{postalCode}"
+                class="error"></span>
+
+
+          <h5> Course Name </h5>
+          <input type="text" th:field="*{courseName}"
+                 placeholder="Name" />
+          <!-- now validation is not exists for this one
+          <span th:if="${#fields.hasErrors('courseName')}"
+                th:errors="*{courseName}"
+                class="error"></span>
+            -->
+
+          <h5> Course Code </h5>
+          <input type="text" th:field="*{courseCode}"
+                 placeholder="Code" />
+          <span th:if="${#fields.hasErrors('courseCode')}"
+                th:errors="*{courseCode}"
                 class="error"></span>
 
           <input type="submit" value="Submit" class="customSubmit" />

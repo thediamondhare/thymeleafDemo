@@ -1,10 +1,12 @@
 package com.thymeleafDemo.thymeleafDemo.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class Human {
+
+        @NotNull(message="is required")
+        @NotBlank(message="cannot be blank")
+        @Size(min=1, max=30, message="is required with 1-30 chars")
         private String firstName;
 
         @NotNull(message="is required")
